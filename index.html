@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Girl Work & Life Dashboard 🌸💻</title>
+    <!-- Google Fonts: Kanit & Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #fcf6f7;
+            color: #5c4e53;
+        }
+        .font-cute {
+            font-family: 'Quicksand', sans-serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7ebee;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e8c5cb;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4a5ad;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-6 pb-12">
+
+    <!-- Wrapper Dashboard Container -->
+    <div class="max-w-7xl mx-auto space-y-6">
+
+        <!-- Top Header Banner -->
+        <header class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-6 shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-[#fbe8ec] flex items-center justify-center text-3xl shadow-inner">
+                    👓💻
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs px-3 py-1 bg-[#fbe8ec] text-[#b86b77] rounded-full font-cute font-bold">IT Girl Dashboard</span>
+                        <span class="text-xs text-[#a39397]" id="current-date-text">กำลังโหลดวันที่...</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-[#6b5159] mt-1">สวัสดี, น้องพิมมี่ (Junior IT) ✨</h1>
+                </div>
+            </div>
+
+            <!-- Top Statistics Cards -->
+            <div class="flex flex-wrap items-center gap-3">
+                <div class="bg-[#fff9fa] border border-[#f2d6dc] px-4 py-3 rounded-2xl text-center min-w-[110px]">
+                    <div class="text-xs text-[#a39397] font-cute">งานที่เสร็จแล้ว</div>
+                    <div class="text-xl font-bold text-[#b86b77]" id="completed-task-count">0 / 0</div>
+                </div>
+                <div class="bg-[#fff9fa] border border-[#f2d6dc] px-4 py-3 rounded-2xl text-center min-w-[110px]">
+                    <div class="text-xs text-[#a39397] font-cute">ความคืบหน้ารวม</div>
+                    <div class="text-xl font-bold text-[#b86b77]" id="overall-progress-text">0%</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Top Motivational Quote & Habit Summary Row -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm flex items-center justify-between">
+                <div>
+                    <div class="text-xs font-cute text-[#a39397] mb-1">Habit สำเร็จสัปดาห์นี้</div>
+                    <div class="text-2xl font-bold text-[#6b5159]" id="habit-success-rate">80%</div>
+                </div>
+                <div class="text-3xl">⭐</div>
+            </div>
+            <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm flex items-center justify-between">
+                <div>
+                    <div class="text-xs font-cute text-[#a39397] mb-1">ความพร้อมระบบ (Server Uptime)</div>
+                    <div class="text-2xl font-bold text-[#4a7c59]">99.9%</div>
+                </div>
+                <div class="text-3xl">🛡️</div>
+            </div>
+            <div class="bg-[#fbe8ec]/60 border border-[#f2d6dc] rounded-3xl p-5 shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-semibold text-[#8c5a65] italic">"ความพยายามในวันนี้ คือความสำเร็จในวันข้างหน้า" 🌷</p>
+                </div>
+                <div class="text-3xl">🌷</div>
+            </div>
+        </div>
+
+        <!-- Main Grid Layout (Left & Right Columns) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- Left Column (Mini Calendar, Focus Today, Countdown, Secret Vault) -> 4 Cols -->
+            <div class="lg:col-span-4 space-y-6">
+
+                <!-- Mini Calendar Card -->
+                <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="font-bold text-[#6b5159] flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-days text-[#d4a5ad]"></i> ปฏิทินไอที
+                        </h2>
+                        <span class="text-xs font-cute bg-[#fbe8ec] text-[#b86b77] px-2.5 py-1 rounded-lg" id="calendar-month-year">ก.ย. 2026</span>
+                    </div>
+                    <!-- Calendar Grid -->
+                    <div class="grid grid-cols-7 gap-1 text-center text-xs font-cute mb-2 text-[#a39397]">
+                        <div>อา</div><div>จ</div><div>อ</div><div>พ</div><div>พฤ</div><div>ศ</div><div>ส</div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-center text-sm" id="calendar-days-container">
+                        <!-- JS Generated Days -->
+                    </div>
+                </div>
+
+                <!-- Focus Today / To-Do List Card -->
+                <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
+                    <div class="flex justify-between items-center mb-3">
+                        <h2 class="font-bold text-[#6b5159] flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye text-[#d4a5ad]"></i> โฟกัสวันนี้ (To-Do)
+                        </h2>
+                        <button onclick="openTodoModal()" class="text-xs bg-[#fbe8ec] hover:bg-[#f2d6dc] text-[#b86b77] px-2.5 py-1 rounded-lg font-cute transition">
+                            <i class="fa-solid fa-plus"></i> เพิ่ม
+                        </button>
+                    </div>
+                    <input type="text" id="today-focus-title" class="w-full text-sm font-semibold bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 mb-3 outline-none focus:border-[#d4a5ad]" placeholder="เป้าหมายหลักของวันนี้..." value="Deploy Patch ระบบใหม่ & ทำ Test Case">
+                    
+                    <div class="space-y-2 max-h-56 overflow-y-auto pr-1" id="todo-list-container">
+                        <!-- Dynamic To-Do Items -->
+                    </div>
+                </div>
+
+                <!-- IT Countdown / Reminder Card -->
+                <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="font-bold text-[#6b5159] flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-[#d4a5ad]"></i> นับถอยหลังโปรเจกต์
+                        </h2>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
+                            <div>
+                                <div class="font-semibold text-[#6b5159]">Security Audit</div>
+                                <div class="text-xs text-[#a39397]">15 ตลาคม 2026</div>
+                            </div>
+                            <div class="text-lg font-bold text-[#b86b77]">17 <span class="text-xs font-normal">วัน</span></div>
+                        </div>
+                        <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
+                            <div>
+                                <div class="font-semibold text-[#6b5159]">Server Migration</div>
+                                <div class="text-xs text-[#a39397]">31 ตุลาคม 2026</div>
+                            </div>
+                            <div class="text-lg font-bold text-[#b86b77]">33 <span class="text-xs font-normal">วัน</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column (Task Tracker Table, Schedule, Habit Tracker, Secret Vault) -> 8 Cols -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- Task Tracker Table Card (คล้ายตารางในรูปตัวอย่าง) -->
+                <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
+                        <div>
+                            <h2 class="font-bold text-[#6b5159] text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-[#d4a5ad]"></i> ติดตามงานไอที / โปรเจกต์
+                            </h2>
+                            <p class="text-xs text-[#a39397]">บันทึกและเช็คสถานะงานประจำวันและงานโปรเจกต์ใหญ่</p>
+                        </div>
+                        <button onclick="openTaskModal()" class="bg-[#b86b77] hover:bg-[#a35964] text-white px-4 py-2 rounded-xl text-sm font-cute shadow-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i> เพิ่มงานใหม่
+                        </button>
+                    </div>
+
+                    <!-- Table Responsive -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="border-b border-[#f2d6dc] text-[#a39397] font-cute text-xs">
+                                    <th class="py-3 px-3">หมวดหมู่</th>
+                                    <th class="py-3 px-3">หัวข้องาน / รายละเอียด</th>
+                                    <th class="py-3 px-3">กำหนดส่ง</th>
+                                    <th class="py-3 px-3">สถานะ</th>
+                                    <th class="py-3 px-3">ความสำคัญ</th>
+                                    <th class="py-3 px-3 text-center">จัดการ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="task-table-body" class="divide-y divide-[#fcf6f7]">
+                                <!-- Dynamic Rows -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Overall Table Progress Bar -->
+                    <div class="mt-5 pt-4 border-t border-[#f2d6dc]">
+                        <div class="flex justify-between text-xs text-[#a39397] font-cute mb-1">
+                            <span>ความคืบหน้างานทั้งหมด</span>
+                            <span id="table-progress-percent">62%</span>
+                        </div>
+                        <div class="w-full bg-[#fbe8ec] h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-[#b86b77] h-full rounded-full transition-all duration-500" id="table-progress-bar" style="width: 62%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schedule & Habit Tracker Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- IT Schedule / Shifts -->
+                    <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <h2 class="font-bold text-[#6b5159] flex items-center gap-2">
+                                <i class="fa-solid fa-calendar-week text-[#d4a5ad]"></i> ตารางเวร / เวลาทำงาน
+                            </h2>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
+                                <span class="font-semibold text-[#6b5159]">จันทร์ - พุธ</span>
+                                <span class="text-[#a39397]">08:30 - 17:30 (Support Desk)</span>
+                                <span class="px-2 py-0.5 bg-[#e2ece9] text-[#4a7c59] rounded-full">Normal</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
+                                <span class="font-semibold text-[#6b5159]">พฤหัสบดี</span>
+                                <span class="text-[#a39397]">13:00 - 21:00 (On-Call Shift)</span>
+                                <span class="px-2 py-0.5 bg-[#faedcd] text-[#b5838d] rounded-full">On-Call</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
+                                <span class="font-semibold text-[#6b5159]">ศุกร์</span>
+                                <span class="text-[#a39397]">08:30 - 17:30 (Server Maintenance)</span>
+                                <span class="px-2 py-0.5 bg-[#fbe8ec] text-[#b86b77] rounded-full">Maintenance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Habit Tracker -->
+                    <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <h2 class="font-bold text-[#6b5159] flex items-center gap-2">
+                                <i class="fa-solid fa-seedling text-[#4a7c59]"></i> Habit Tracker (สัปดาห์นี้)
+                            </h2>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-center text-xs font-cute">
+                                <thead>
+                                    <tr class="text-[#a39397] border-b border-[#f2d6dc]">
+                                        <th class="text-left py-2">Habit</th>
+                                        <th>จ</th><th>อ</th><th>พ</th><th>พฤ</th><th>ศ</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-[#fcf6f7]" id="habit-table-body">
+                                    <!-- Dynamic Habit Rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Secret Vault & Quick Notes (คลังรหัส & ข้อมูลสำคัญ) -->
+                <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
+                    <div class="flex justify-between items-center mb-3">
+                        <h2 class="font-bold text-[#6b5159] flex items-center gap-2">
+                            <i class="fa-solid fa-key text-[#d4a5ad]"></i> คลังรหัส & ข้อมูลสำคัญ (Secret Vault)
+                        </h2>
+                        <button onclick="openVaultModal()" class="text-xs bg-[#fbe8ec] hover:bg-[#f2d6dc] text-[#b86b77] px-2.5 py-1 rounded-lg font-cute transition">
+                            <i class="fa-solid fa-plus"></i> เพิ่มรหัส
+                        </button>
+                    </div>
+                    <p class="text-xs text-[#a39397] mb-3">เก็บลิงก์ระบบ IP Address และคำสั่งลับที่ใช้บ่อย คลิกเพื่อคัดลอกหรือแสดงรหัสผ่าน</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="vault-grid-container">
+                        <!-- Dynamic Vault Cards -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Add Task Modal -->
+    <div id="task-modal" class="fixed inset-0 bg-black/30 backdrop-blur-xs hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 border border-[#f2d6dc] shadow-lg space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-lg text-[#6b5159]" id="task-modal-title">เพิ่มงานใหม่</h3>
+                <button onclick="closeTaskModal()" class="text-[#a39397] hover:text-[#6b5159]"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="task-form" onsubmit="saveTask(event)" class="space-y-3">
+                <input type="hidden" id="task-id">
+                <div>
+                    <label class="text-xs font-cute text-[#a39397] block mb-1">หมวดหมู่</label>
+                    <select id="task-category" class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none">
+                        <option value="Coding">Coding</option>
+                        <option value="System">System / Server</option>
+                        <option value="Network">Network</option>
+                        <option value="IT Support">IT Support</option>
+                        <option value="Meeting">Meeting / Doc</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs font-cute text-[#a39397] block mb-1">หัวข้องาน / รายละเอียด</label>
+                    <input type="text" id="task-name" required class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none" placeholder="เช่น ตั้งค่า VPN สำนักงานสาขา">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-xs font-cute text-[#a39397] block mb-1">กำหนดส่ง</label>
+                        <input type="text" id="task-duedate" required class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none" placeholder="เช่น 15 ต.ค.">
+                    </div>
+                    <div>
+                        <label class="text-xs font-cute text-[#a39397] block mb-1">ความสำคัญ</label>
+                        <select id="task-priority" class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none">
+                            <option value="สูง">สูง 🔴</option>
+                            <option value="ปานกลาง">ปานกลาง 🟡</option>
+                            <option value="ต่ำ">ต่ำ 🟢</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs font-cute text-[#a39397] block mb-1">สถานะ</label>
+                    <select id="task-status" class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none">
+                        <option value="เสร็จแล้ว">เสร็จแล้ว</option>
+                        <option value="กำลังทำ">กำลังทำ</option>
+                        <option value="ติดปัญหา">ติดปัญหา</option>
+                    </select>
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeTaskModal()" class="px-4 py-2 rounded-xl text-sm text-[#a39397] hover:bg-[#fcf6f7]">ยกเลิก</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl text-sm bg-[#b86b77] text-white font-cute shadow-sm hover:bg-[#a35964]">บันทึก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add To-Do Modal -->
+    <div id="todo-modal" class="fixed inset-0 bg-black/30 backdrop-blur-xs hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 border border-[#f2d6dc] shadow-lg space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-lg text-[#6b5159]">เพิ่มรายการ To-Do</h3>
+                <button onclick="closeTodoModal()" class="text-[#a39397] hover:text-[#6b5159]"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form onsubmit="saveTodo(event)" class="space-y-3">
+                <input type="text" id="new-todo-text" required class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none" placeholder="สิ่งที่ต้องทำวันนี้...">
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeTodoModal()" class="px-4 py-2 rounded-xl text-sm text-[#a39397]">ยกเลิก</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl text-sm bg-[#b86b77] text-white font-cute">เพิ่ม</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Vault Modal -->
+    <div id="vault-modal" class="fixed inset-0 bg-black/30 backdrop-blur-xs hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 border border-[#f2d6dc] shadow-lg space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-lg text-[#6b5159]">เพิ่มรหัส / ข้อมูลลับ</h3>
+                <button onclick="closeVaultModal()" class="text-[#a39397] hover:text-[#6b5159]"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form onsubmit="saveVault(event)" class="space-y-3">
+                <div>
+                    <label class="text-xs font-cute text-[#a39397] block mb-1">ชื่อรายการ / ระบบ</label>
+                    <input type="text" id="vault-title" required class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none" placeholder="เช่น Staging Database URL">
+                </div>
+                <div>
+                    <label class="text-xs font-cute text-[#a39397] block mb-1">รหัสผ่าน / ข้อมูล / คำสั่ง</label>
+                    <input type="text" id="vault-secret" required class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none font-mono" placeholder="เช่น postgres://user:pass@localhost:5432">
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeVaultModal()" class="px-4 py-2 rounded-xl text-sm text-[#a39397]">ยกเลิก</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl text-sm bg-[#b86b77] text-white font-cute">บันทึก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-[#6b5159] text-white px-4 py-3 rounded-2xl shadow-lg text-sm font-cute transition-all duration-300 transform translate-y-20 opacity-0 z-50 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-[#e8c5cb]"></i> <span id="toast-message">บันทึกสำเร็จเรียบร้อยค่ะ</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Default Data State
+        let appData = {
+            tasks: [
+                { id: 1, category: 'Coding', name: 'Fix Bug หน้ายืนยันตัวตน OTP', duedate: '1 ต.ค.', status: 'เสร็จแล้ว', priority: 'สูง' },
+                { id: 2, category: 'System', name: 'Setup SSL Certificate บน Staging Server', duedate: '5 ต.ค.', status: 'กำลังทำ', priority: 'สูง' },
+                { id: 3, category: 'Network', name: 'Configuration VLAN สำหรับแผนกบัญชี', duedate: '8 ต.ค.', status: 'ติดปัญหา', priority: 'ปานกลาง' },
+                { id: 4, category: 'IT Support', name: 'ลงโปรแกรมและดูแลอุปกรณ์พนักงานใหม่', duedate: '10 ต.ค.', status: 'เสร็จแล้ว', priority: 'ต่ำ' },
+                { id: 5, category: 'Meeting', name: 'Sprint Planning สัปดาห์ที่ 42', duedate: '12 ต.ค.', status: 'เสร็จแล้ว', priority: 'ปานกลาง' }
+            ],
+            todos: [
+                { id: 1, text: 'รีวิว Pull Request ของพี่ในทีม', done: true },
+                { id: 2, text: 'เช็ค Log Error ประจำวันบน Kibana', done: true },
+                { id: 3, text: 'อัปเดตเอกสาร API Endpoint', done: false },
+                { id: 4, text: 'พักสายตาและดื่มน้ำทุกๆ 1 ชั่วโมง 💧', done: false }
+            ],
+            vault: [
+                { id: 1, title: 'SSH Staging Server', secret: 'ssh ubuntu@192.168.1.50 -i ~/.ssh/id_rsa' },
+                { id: 2, title: 'Database Admin Password', secret: 'P@ssw0rd2026!Secure#IT' },
+                { id: 3, title: 'VPN Office Gateway', secret: 'vpn.company-internal.net:1194' }
+            ],
+            habits: [
+                { name: 'ดื่มน้ำครบ 8 แก้ว', days: [true, true, true, true, true] },
+                { name: 'พักสายตาจากจอทุก 1 ชม.', days: [true, true, false, true, true] },
+                { name: 'ออกกำลังกาย / ยืดเส้น', days: [false, true, true, false, true] },
+                { name: 'นอนก่อน 23.00 น.', days: [true, false, true, true, true] },
+                { name: 'เรียนรู้สกิล IT ใหม่ 10 นาที', days: [true, true, true, true, true] }
+            ]
+        };
+
+        // Load LocalStorage if available
+        function loadData() {
+            const saved = localStorage.getItem('it_girl_dashboard_data');
+            if (saved) {
+                try { appData = JSON.parse(saved); } catch(e) { console.error(e); }
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem('it_girl_dashboard_data', JSON.stringify(appData));
+            renderAll();
+        }
+
+        // Show Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Render Current Date
+        function renderDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const todayStr = new Date().toLocaleDateString('th-TH', options);
+            document.getElementById('current-date-text').innerText = todayStr;
+            document.getElementById('calendar-month-year').innerText = new Date().toLocaleDateString('th-TH', { month: 'short', year: 'numeric' });
+        }
+
+        // Render Mini Calendar
+        function renderCalendar() {
+            const container = document.getElementById('calendar-days-container');
+            container.innerHTML = '';
+            // Simple render 31 days representation for current month demo
+            const currentDay = new Date().getDate();
+            for (let i = 1; i <= 31; i++) {
+                const isToday = i === currentDay;
+                const div = document.createElement('div');
+                div.className = `py-1.5 rounded-xl font-cute text-xs transition ${isToday ? 'bg-[#b86b77] text-white font-bold shadow-sm' : 'hover:bg-[#fbe8ec]/50 text-[#6b5159]'}`;
+                div.innerText = i;
+                container.appendChild(div);
+            }
+        }
+
+        // Render Tasks Table & Stats
+        function renderTasks() {
+            const tbody = document.getElementById('task-table-body');
+            tbody.innerHTML = '';
+
+            let completedCount = 0;
+            const totalTasks = appData.tasks.length;
+
+            appData.tasks.forEach(task => {
+                if (task.status === 'เสร็จแล้ว') completedCount++;
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-[#fff9fa] transition';
+
+                // Status Badge Color
+                let statusBg = 'bg-[#e2ece9] text-[#4a7c59]';
+                if (task.status === 'กำลังทำ') statusBg = 'bg-[#faedcd] text-[#b5838d]';
+                if (task.status === 'ติดปัญหา') statusBg = 'bg-[#fbe8ec] text-[#b86b77]';
+
+                // Priority Badge Color
+                let priorityBadge = '🔴 สูง';
+                let priorityClass = 'bg-[#fbe8ec] text-[#b86b77]';
+                if (task.priority === 'ปานกลาง') { priorityBadge = '🟡 ปานกลาง'; priorityClass = 'bg-[#faedcd] text-[#b5838d]'; }
+                if (task.priority === 'ต่ำ') { priorityBadge = '🟢 ต่ำ'; priorityClass = 'bg-[#e2ece9] text-[#4a7c59]'; }
+
+                tr.innerHTML = `
+                    <td class="py-3 px-3 font-cute text-xs"><span class="px-2.5 py-1 bg-[#fff9fa] border border-[#f2d6dc] rounded-lg">${task.category}</span></td>
+                    <td class="py-3 px-3 font-medium text-[#6b5159]">${task.name}</td>
+                    <td class="py-3 px-3 font-cute text-xs text-[#a39397]">${task.duedate}</td>
+                    <td class="py-3 px-3"><span class="px-2.5 py-1 rounded-full text-xs font-cute ${statusBg}">${task.status}</span></td>
+                    <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-md text-xs font-cute ${priorityClass}">${priorityBadge}</span></td>
+                    <td class="py-3 px-3 text-center">
+                        <button onclick="editTask(${task.id})" class="text-[#a39397] hover:text-[#6b5159] mr-2"><i class="fa-solid fa-pen"></i></button>
+                        <button onclick="deleteTask(${task.id})" class="text-[#a39397] hover:text-[#b86b77]"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update Counts & Progress
+            document.getElementById('completed-task-count').innerText = `${completedCount} / ${totalTasks}`;
+            const percent = totalTasks > 0 ? Math.round((completedCount / totalTasks) * 100) : 0;
+            document.getElementById('overall-progress-text').innerText = `${percent}%`;
+            document.getElementById('table-progress-percent').innerText = `${percent}%`;
+            document.getElementById('table-progress-bar').style.width = `${percent}%`;
+        }
+
+        // Render To-Do List
+        function renderTodos() {
+            const container = document.getElementById('todo-list-container');
+            container.innerHTML = '';
+
+            appData.todos.forEach(todo => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center justify-between bg-[#fff9fa] border border-[#fbe8ec] p-2.5 rounded-xl';
+                div.innerHTML = `
+                    <label class="flex items-center gap-2.5 cursor-pointer text-sm ${todo.done ? 'line-through text-[#a39397]' : 'text-[#6b5159]'}">
+                        <input type="checkbox" ${todo.done ? 'checked' : ''} onchange="toggleTodo(${todo.id})" class="accent-[#b86b77] w-4 h-4 rounded">
+                        <span>${todo.text}</span>
+                    </label>
+                    <button onclick="deleteTodo(${todo.id})" class="text-[#a39397] hover:text-[#b86b77] text-xs"><i class="fa-solid fa-xmark"></i></button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Render Habit Tracker
+        function renderHabits() {
+            const tbody = document.getElementById('habit-table-body');
+            tbody.innerHTML = '';
+
+            appData.habits.forEach((habit, hIdx) => {
+                const tr = document.createElement('tr');
+                let daysHtml = '';
+                habit.days.forEach((checked, dIdx) => {
+                    daysHtml += `<td><input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleHabit(${hIdx}, ${dIdx})" class="accent-[#4a7c59] w-4 h-4 rounded"></td>`;
+                });
+                tr.innerHTML = `
+                    <td class="text-left py-2 font-medium text-[#6b5159]">${habit.name}</td>
+                    ${daysHtml}
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Render Secret Vault
+        function renderVault() {
+            const container = document.getElementById('vault-grid-container');
+            container.innerHTML = '';
+
+            appData.vault.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'bg-[#fff9fa] border border-[#fbe8ec] p-3 rounded-2xl space-y-2';
+                div.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-[#6b5159] font-cute"><i class="fa-solid fa-shield-halved text-[#d4a5ad]"></i> ${item.title}</span>
+                        <button onclick="deleteVault(${item.id})" class="text-[#a39397] hover:text-[#b86b77] text-xs"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    <div class="flex items-center justify-between bg-white border border-[#f2d6dc] px-3 py-1.5 rounded-xl">
+                        <span class="text-xs font-mono text-[#b86b77] truncate max-w-[150px]" id="vault-text-${item.id}">••••••••••••</span>
+                        <div class="flex items-center gap-2">
+                            <button onclick="toggleVaultSecret(${item.id}, '${item.secret}')" class="text-xs text-[#a39397] hover:text-[#6b5159]" title="แสดง/ซ่อน"><i class="fa-solid fa-eye" id="vault-eye-${item.id}"></i></button>
+                            <button onclick="copyToClipboard('${item.secret}')" class="text-xs text-[#a39397] hover:text-[#b86b77]" title="คัดลอก"><i class="fa-solid fa-copy"></i></button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Vault Actions
+        const revealedVaults = {};
+        function toggleVaultSecret(id, secret) {
+            const span = document.getElementById(`vault-text-${id}`);
+            const eye = document.getElementById(`vault-eye-${id}`);
+            if (revealedVaults[id]) {
+                span.innerText = '••••••••••••';
+                eye.className = 'fa-solid fa-eye';
+                revealedVaults[id] = false;
+            } else {
+                span.innerText = secret;
+                eye.className = 'fa-solid fa-eye-slash';
+                revealedVaults[id] = true;
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('คัดลอกข้อมูลไปยังคลิปบอร์ดแล้วค่ะ! 📋');
+            });
+        }
+
+        // Modal Controls
+        function openTaskModal(editId = null) {
+            document.getElementById('task-modal').classList.remove('hidden');
+            document.getElementById('task-modal').classList.add('flex');
+            if (editId) {
+                document.getElementById('task-modal-title').innerText = 'แก้ไขงาน';
+                const task = appData.tasks.find(t => t.id === editId);
+                document.getElementById('task-id').value = task.id;
+                document.getElementById('task-category').value = task.category;
+                document.getElementById('task-name').value = task.name;
+                document.getElementById('task-duedate').value = task.duedate;
+                document.getElementById('task-status').value = task.status;
+                document.getElementById('task-priority').value = task.priority;
+            } else {
+                document.getElementById('task-modal-title').innerText = 'เพิ่มงานใหม่';
+                document.getElementById('task-form').reset();
+                document.getElementById('task-id').value = '';
+            }
+        }
+        function closeTaskModal() {
+            document.getElementById('task-modal').classList.add('hidden');
+            document.getElementById('task-modal').classList.remove('flex');
+        }
+
+        function saveTask(e) {
+            e.preventDefault();
+            const id = document.getElementById('task-id').value;
+            const category = document.getElementById('task-category').value;
+            const name = document.getElementById('task-name').value;
+            const duedate = document.getElementById('task-duedate').value;
+            const status = document.getElementById('task-status').value;
+            const priority = document.getElementById('task-priority').value;
+
+            if (id) {
+                const t = appData.tasks.find(item => item.id == id);
+                t.category = category; t.name = name; t.duedate = duedate; t.status = status; t.priority = priority;
+                showToast('อัปเดตงานเรียบร้อยค่ะ! ✨');
+            } else {
+                const newTask = { id: Date.now(), category, name, duedate, status, priority };
+                appData.tasks.push(newTask);
+                showToast('เพิ่มงานใหม่สำเร็จค่ะ! 🌸');
+            }
+            saveData();
+            closeTaskModal();
+        }
+
+        function editTask(id) { openTaskModal(id); }
+        function deleteTask(id) {
+            appData.tasks = appData.tasks.filter(t => t.id !== id);
+            saveData();
+            showToast('ลบงานเรียบร้อยค่ะ');
+        }
+
+        // To-Do Actions
+        function openTodoModal() { document.getElementById('todo-modal').classList.remove('hidden'); document.getElementById('todo-modal').classList.add('flex'); }
+        function closeTodoModal() { document.getElementById('todo-modal').classList.add('hidden'); document.getElementById('todo-modal').classList.remove('flex'); }
+        function saveTodo(e) {
+            e.preventDefault();
+            const text = document.getElementById('new-todo-text').value;
+            appData.todos.push({ id: Date.now(), text, done: false });
+            saveData();
+            closeTodoModal();
+            document.getElementById('new-todo-text').value = '';
+            showToast('เพิ่มรายการ To-Do แล้วค่ะ!');
+        }
+        function toggleTodo(id) {
+            const t = appData.todos.find(item => item.id === id);
+            if (t) { t.done = !t.done; saveData(); }
+        }
+        function deleteTodo(id) {
+            appData.todos = appData.todos.filter(t => t.id !== id);
+            saveData();
+        }
+
+        // Habit Action
+        function toggleHabit(hIdx, dIdx) {
+            appData.habits[hIdx].days[dIdx] = !appData.habits[hIdx].days[dIdx];
+            saveData();
+        }
+
+        // Vault Actions
+        function openVaultModal() { document.getElementById('vault-modal').classList.remove('hidden'); document.getElementById('vault-modal').classList.add('flex'); }
+        function closeVaultModal() { document.getElementById('vault-modal').classList.add('hidden'); document.getElementById('vault-modal').classList.remove('flex'); }
+        function saveVault(e) {
+            e.preventDefault();
+            const title = document.getElementById('vault-title').value;
+            const secret = document.getElementById('vault-secret').value;
+            appData.vault.push({ id: Date.now(), title, secret });
+            saveData();
+            closeVaultModal();
+            document.getElementById('vault-title').value = '';
+            document.getElementById('vault-secret').value = '';
+            showToast('บันทึกข้อมูลลับสำเร็จค่ะ! 🔒');
+        }
+        function deleteVault(id) {
+            appData.vault = appData.vault.filter(v => v.id !== id);
+            saveData();
+            showToast('ลบข้อมูลเรียบร้อยค่ะ');
+        }
+
+        // Init Render
+        function renderAll() {
+            renderDate();
+            renderCalendar();
+            renderTasks();
+            renderTodos();
+            renderHabits();
+            renderVault();
+        }
+
+        loadData();
+        renderAll();
+    </script>
+</body>
+</html>
