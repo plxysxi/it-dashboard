@@ -52,7 +52,7 @@
                         <span class="text-xs px-3 py-1 bg-[#fbe8ec] text-[#b86b77] rounded-full font-cute font-bold">IT Girl Dashboard</span>
                         <span class="text-xs text-[#a39397]" id="current-date-text">กำลังโหลดวันที่...</span>
                     </div>
-                    <h1 class="text-2xl md:text-3xl font-bold text-[#6b5159] mt-1">สวัสดี, น้องพิมมี่ (Junior IT) ✨</h1>
+                    <h1 class="text-2xl md:text-3xl font-bold text-[#6b5159] mt-1">สวัสดี, น้องพลอยใส (Ploysai) ✨</h1>
                 </div>
             </div>
 
@@ -96,7 +96,7 @@
         <!-- Main Grid Layout (Left & Right Columns) -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-            <!-- Left Column (Mini Calendar, Focus Today, Countdown, Secret Vault) -> 4 Cols -->
+            <!-- Left Column (Mini Calendar, Focus Today, Countdown) -> 4 Cols -->
             <div class="lg:col-span-4 space-y-6">
 
                 <!-- Mini Calendar Card -->
@@ -126,7 +126,7 @@
                             <i class="fa-solid fa-plus"></i> เพิ่ม
                         </button>
                     </div>
-                    <input type="text" id="today-focus-title" class="w-full text-sm font-semibold bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 mb-3 outline-none focus:border-[#d4a5ad]" placeholder="เป้าหมายหลักของวันนี้..." value="Deploy Patch ระบบใหม่ & ทำ Test Case">
+                    <input type="text" id="today-focus-title" class="w-full text-sm font-semibold bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 mb-3 outline-none focus:border-[#d4a5ad]" value="Support ระบบภายใน & วิเคราะห์ข้อมูลประจำสัปดาห์">
                     
                     <div class="space-y-2 max-h-56 overflow-y-auto pr-1" id="todo-list-container">
                         <!-- Dynamic To-Do Items -->
@@ -143,14 +143,14 @@
                     <div class="space-y-3 text-sm">
                         <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
                             <div>
-                                <div class="font-semibold text-[#6b5159]">Security Audit</div>
-                                <div class="text-xs text-[#a39397]">15 ตลาคม 2026</div>
+                                <div class="font-semibold text-[#6b5159]">IT Project Audit</div>
+                                <div class="text-xs text-[#a39397]">15 ตุลาคม 2026</div>
                             </div>
                             <div class="text-lg font-bold text-[#b86b77]">17 <span class="text-xs font-normal">วัน</span></div>
                         </div>
                         <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
                             <div>
-                                <div class="font-semibold text-[#6b5159]">Server Migration</div>
+                                <div class="font-semibold text-[#6b5159]">Data Migration</div>
                                 <div class="text-xs text-[#a39397]">31 ตุลาคม 2026</div>
                             </div>
                             <div class="text-lg font-bold text-[#b86b77]">33 <span class="text-xs font-normal">วัน</span></div>
@@ -163,14 +163,14 @@
             <!-- Right Column (Task Tracker Table, Schedule, Habit Tracker, Secret Vault) -> 8 Cols -->
             <div class="lg:col-span-8 space-y-6">
 
-                <!-- Task Tracker Table Card (คล้ายตารางในรูปตัวอย่าง) -->
+                <!-- Task Tracker Table Card -->
                 <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
                         <div>
                             <h2 class="font-bold text-[#6b5159] text-lg flex items-center gap-2">
-                                <i class="fa-solid fa-list-check text-[#d4a5ad]"></i> ติดตามงานไอที / โปรเจกต์
+                                <i class="fa-solid fa-list-check text-[#d4a5ad]"></i> ติดตามงาน (Task Tracker)
                             </h2>
-                            <p class="text-xs text-[#a39397]">บันทึกและเช็คสถานะงานประจำวันและงานโปรเจกต์ใหญ่</p>
+                            <p class="text-xs text-[#a39397]">บันทึกและเช็คสถานะงานประจำวันของพลอยใส</p>
                         </div>
                         <button onclick="openTaskModal()" class="bg-[#b86b77] hover:bg-[#a35964] text-white px-4 py-2 rounded-xl text-sm font-cute shadow-sm transition flex items-center gap-2">
                             <i class="fa-solid fa-plus"></i> เพิ่มงานใหม่
@@ -215,24 +215,24 @@
                     <div class="bg-white/80 backdrop-blur-md border border-[#f2d6dc] rounded-3xl p-5 shadow-sm">
                         <div class="flex justify-between items-center mb-3">
                             <h2 class="font-bold text-[#6b5159] flex items-center gap-2">
-                                <i class="fa-solid fa-calendar-week text-[#d4a5ad]"></i> ตารางเวร / เวลาทำงาน
+                                <i class="fa-solid fa-calendar-week text-[#d4a5ad]"></i> ตารางเวลาทำงาน
                             </h2>
                         </div>
                         <div class="space-y-2 text-xs">
                             <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
                                 <span class="font-semibold text-[#6b5159]">จันทร์ - พุธ</span>
-                                <span class="text-[#a39397]">08:30 - 17:30 (Support Desk)</span>
+                                <span class="text-[#a39397]">08:30 - 17:30 (IT Support & Data)</span>
                                 <span class="px-2 py-0.5 bg-[#e2ece9] text-[#4a7c59] rounded-full">Normal</span>
                             </div>
                             <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
                                 <span class="font-semibold text-[#6b5159]">พฤหัสบดี</span>
-                                <span class="text-[#a39397]">13:00 - 21:00 (On-Call Shift)</span>
-                                <span class="px-2 py-0.5 bg-[#faedcd] text-[#b5838d] rounded-full">On-Call</span>
+                                <span class="text-[#a39397]">13:00 - 21:00 (Meeting & Sync)</span>
+                                <span class="px-2 py-0.5 bg-[#faedcd] text-[#b5838d] rounded-full">Meeting</span>
                             </div>
                             <div class="flex justify-between items-center bg-[#fff9fa] p-2.5 rounded-xl border border-[#fbe8ec]">
                                 <span class="font-semibold text-[#6b5159]">ศุกร์</span>
-                                <span class="text-[#a39397]">08:30 - 17:30 (Server Maintenance)</span>
-                                <span class="px-2 py-0.5 bg-[#fbe8ec] text-[#b86b77] rounded-full">Maintenance</span>
+                                <span class="text-[#a39397]">08:30 - 17:30 (Marketing & Systems)</span>
+                                <span class="px-2 py-0.5 bg-[#fbe8ec] text-[#b86b77] rounded-full">Project</span>
                             </div>
                         </div>
                     </div>
@@ -298,16 +298,15 @@
                 <div>
                     <label class="text-xs font-cute text-[#a39397] block mb-1">หมวดหมู่</label>
                     <select id="task-category" class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none">
-                        <option value="Coding">Coding</option>
-                        <option value="System">System / Server</option>
-                        <option value="Network">Network</option>
                         <option value="IT Support">IT Support</option>
-                        <option value="Meeting">Meeting / Doc</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Data">Data</option>
+                        <option value="Meeting">Meeting</option>
                     </select>
                 </div>
                 <div>
                     <label class="text-xs font-cute text-[#a39397] block mb-1">หัวข้องาน / รายละเอียด</label>
-                    <input type="text" id="task-name" required class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none" placeholder="เช่น ตั้งค่า VPN สำนักงานสาขา">
+                    <input type="text" id="task-name" required class="w-full text-sm bg-[#fff9fa] border border-[#f2d6dc] rounded-xl px-3 py-2 outline-none" placeholder="เช่น วิเคราะห์ข้อมูลแคมเปญใหม่">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
@@ -387,19 +386,17 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Default Data State
         let appData = {
             tasks: [
-                { id: 1, category: 'Coding', name: 'Fix Bug หน้ายืนยันตัวตน OTP', duedate: '1 ต.ค.', status: 'เสร็จแล้ว', priority: 'สูง' },
-                { id: 2, category: 'System', name: 'Setup SSL Certificate บน Staging Server', duedate: '5 ต.ค.', status: 'กำลังทำ', priority: 'สูง' },
-                { id: 3, category: 'Network', name: 'Configuration VLAN สำหรับแผนกบัญชี', duedate: '8 ต.ค.', status: 'ติดปัญหา', priority: 'ปานกลาง' },
-                { id: 4, category: 'IT Support', name: 'ลงโปรแกรมและดูแลอุปกรณ์พนักงานใหม่', duedate: '10 ต.ค.', status: 'เสร็จแล้ว', priority: 'ต่ำ' },
-                { id: 5, category: 'Meeting', name: 'Sprint Planning สัปดาห์ที่ 42', duedate: '12 ต.ค.', status: 'เสร็จแล้ว', priority: 'ปานกลาง' }
+                { id: 1, category: 'IT Support', name: 'Fix Bug ระบบยืนยันตัวตน OTP', duedate: '1 ต.ค.', status: 'เสร็จแล้ว', priority: 'สูง' },
+                { id: 2, category: 'Data', name: 'Query และวิเคราะห์ข้อมูลยอดขายรายสัปดาห์', duedate: '5 ต.ค.', status: 'กำลังทำ', priority: 'สูง' },
+                { id: 3, category: 'Marketing', name: 'เตรียมข้อมูลทำรายงานแคมเปญโปรโมชัน', duedate: '8 ต.ค.', status: 'ติดปัญหา', priority: 'ปานกลาง' },
+                { id: 4, category: 'Meeting', name: 'Sync ทีมงานและวางแผน Sprint ประจำสัปดาห์', duedate: '12 ต.ค.', status: 'เสร็จแล้ว', priority: 'ปานกลาง' }
             ],
             todos: [
-                { id: 1, text: 'รีวิว Pull Request ของพี่ในทีม', done: true },
-                { id: 2, text: 'เช็ค Log Error ประจำวันบน Kibana', done: true },
-                { id: 3, text: 'อัปเดตเอกสาร API Endpoint', done: false },
+                { id: 1, text: 'เช็ค Log Error ระบบบน Server', done: true },
+                { id: 2, text: 'อัปเดต Dashboard ข้อมูล Marketing', done: false },
+                { id: 3, text: 'ประชุมร่วมกับทีม Data', done: false },
                 { id: 4, text: 'พักสายตาและดื่มน้ำทุกๆ 1 ชั่วโมง 💧', done: false }
             ],
             vault: [
@@ -416,20 +413,18 @@
             ]
         };
 
-        // Load LocalStorage if available
         function loadData() {
-            const saved = localStorage.getItem('it_girl_dashboard_data');
+            const saved = localStorage.getItem('it_girl_dashboard_data_v2');
             if (saved) {
                 try { appData = JSON.parse(saved); } catch(e) { console.error(e); }
             }
         }
 
         function saveData() {
-            localStorage.setItem('it_girl_dashboard_data', JSON.stringify(appData));
+            localStorage.setItem('it_girl_dashboard_data_v2', JSON.stringify(appData));
             renderAll();
         }
 
-        // Show Toast Notification
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').innerText = msg;
@@ -439,7 +434,6 @@
             }, 2500);
         }
 
-        // Render Current Date
         function renderDate() {
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             const todayStr = new Date().toLocaleDateString('th-TH', options);
@@ -447,11 +441,9 @@
             document.getElementById('calendar-month-year').innerText = new Date().toLocaleDateString('th-TH', { month: 'short', year: 'numeric' });
         }
 
-        // Render Mini Calendar
         function renderCalendar() {
             const container = document.getElementById('calendar-days-container');
             container.innerHTML = '';
-            // Simple render 31 days representation for current month demo
             const currentDay = new Date().getDate();
             for (let i = 1; i <= 31; i++) {
                 const isToday = i === currentDay;
@@ -462,7 +454,6 @@
             }
         }
 
-        // Render Tasks Table & Stats
         function renderTasks() {
             const tbody = document.getElementById('task-table-body');
             tbody.innerHTML = '';
@@ -476,12 +467,10 @@
                 const tr = document.createElement('tr');
                 tr.className = 'hover:bg-[#fff9fa] transition';
 
-                // Status Badge Color
                 let statusBg = 'bg-[#e2ece9] text-[#4a7c59]';
                 if (task.status === 'กำลังทำ') statusBg = 'bg-[#faedcd] text-[#b5838d]';
                 if (task.status === 'ติดปัญหา') statusBg = 'bg-[#fbe8ec] text-[#b86b77]';
 
-                // Priority Badge Color
                 let priorityBadge = '🔴 สูง';
                 let priorityClass = 'bg-[#fbe8ec] text-[#b86b77]';
                 if (task.priority === 'ปานกลาง') { priorityBadge = '🟡 ปานกลาง'; priorityClass = 'bg-[#faedcd] text-[#b5838d]'; }
@@ -501,7 +490,6 @@
                 tbody.appendChild(tr);
             });
 
-            // Update Counts & Progress
             document.getElementById('completed-task-count').innerText = `${completedCount} / ${totalTasks}`;
             const percent = totalTasks > 0 ? Math.round((completedCount / totalTasks) * 100) : 0;
             document.getElementById('overall-progress-text').innerText = `${percent}%`;
@@ -509,7 +497,6 @@
             document.getElementById('table-progress-bar').style.width = `${percent}%`;
         }
 
-        // Render To-Do List
         function renderTodos() {
             const container = document.getElementById('todo-list-container');
             container.innerHTML = '';
@@ -528,7 +515,6 @@
             });
         }
 
-        // Render Habit Tracker
         function renderHabits() {
             const tbody = document.getElementById('habit-table-body');
             tbody.innerHTML = '';
@@ -547,7 +533,6 @@
             });
         }
 
-        // Render Secret Vault
         function renderVault() {
             const container = document.getElementById('vault-grid-container');
             container.innerHTML = '';
@@ -572,7 +557,6 @@
             });
         }
 
-        // Vault Actions
         const revealedVaults = {};
         function toggleVaultSecret(id, secret) {
             const span = document.getElementById(`vault-text-${id}`);
@@ -594,7 +578,6 @@
             });
         }
 
-        // Modal Controls
         function openTaskModal(editId = null) {
             document.getElementById('task-modal').classList.remove('hidden');
             document.getElementById('task-modal').classList.add('flex');
@@ -647,7 +630,6 @@
             showToast('ลบงานเรียบร้อยค่ะ');
         }
 
-        // To-Do Actions
         function openTodoModal() { document.getElementById('todo-modal').classList.remove('hidden'); document.getElementById('todo-modal').classList.add('flex'); }
         function closeTodoModal() { document.getElementById('todo-modal').classList.add('hidden'); document.getElementById('todo-modal').classList.remove('flex'); }
         function saveTodo(e) {
@@ -668,13 +650,11 @@
             saveData();
         }
 
-        // Habit Action
         function toggleHabit(hIdx, dIdx) {
             appData.habits[hIdx].days[dIdx] = !appData.habits[hIdx].days[dIdx];
             saveData();
         }
 
-        // Vault Actions
         function openVaultModal() { document.getElementById('vault-modal').classList.remove('hidden'); document.getElementById('vault-modal').classList.add('flex'); }
         function closeVaultModal() { document.getElementById('vault-modal').classList.add('hidden'); document.getElementById('vault-modal').classList.remove('flex'); }
         function saveVault(e) {
@@ -694,7 +674,6 @@
             showToast('ลบข้อมูลเรียบร้อยค่ะ');
         }
 
-        // Init Render
         function renderAll() {
             renderDate();
             renderCalendar();
